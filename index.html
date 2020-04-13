@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>EmailValidation</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="">
+		<h3>Email Validation Check</h3>
+		<form action="#" id="form">
+			<div class="inputBox">
+				<input type="text" name="" id="email" placeholder="Enter Email Address" onkeydown="validation()">
+				<span id="text"></span>
+			</div>
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		function validation() 
+		{
+			var form = document.getElementById("form");
+			var email = document.getElementById("email").value;	
+			var text = document.getElementById("text");
+			var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+			if (email.match(pattern))
+			{
+				form.classList.add("valid");
+				form.classList.remove("invalid");
+				text.innerHTML = "Все введено правильно";
+				text.style.color = "#00ff00";
+			}
+			else
+			{
+				form.classList.remove("valid");
+				form.classList.add("invalid");
+				text.innerHTML = "Пожалуйста, введите правильный емайл";
+				text.style.color = "#ff0000";
+			}
+
+			if (email == "")
+			{
+				form.classList.remove("valid");
+				form.classList.remove("invalid");
+				text.innerHTML = "";
+				text.style.color = "#00ff00";
+			}
+		}
+
+	</script>
+</body>
+</html>
